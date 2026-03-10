@@ -1,23 +1,20 @@
 context:
   name: onsas
-  version: "0.4.2"
+  version: "0.2.9"
 
 package:
   name: octave-${{ name }}
   version: ${{ version }}
 
 source:
-  url: https://github.com/ONSAS/ONSAS.m/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: b88c1caefcd82d7393b7d604ddefdc0da5136da0cb8b18587469e066857f352c
+  url: https://github.com/ONSAS/ONSAS/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 005e47e2d200f1261d8ef47490a884feddd545c949292348675f840237eece82
   target_directory: ${{ name }}
 
 build:
   number: 0
   noarch: generic
   script: |
-    cp ${{ name }}/utils/Makefile ${{ name }}/Makefile
-    cp ${{ name }}/utils/poetry.lock ${{ name }}/poetry.lock
-    cp ${{ name }}/utils/README.md ${{ name }}/README.md
     tar -czf ${{ name }}-${{ version }}.tar.gz ${{ name }}
     octave -W -H --eval "pkg install -global -verbose ${{ name }}-${{ version }}.tar.gz"
 
