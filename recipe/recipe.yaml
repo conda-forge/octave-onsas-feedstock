@@ -15,6 +15,9 @@ build:
   number: 0
   noarch: generic
   script: |
+    cp ${{ name }}/utils/Makefile ${{ name }}/Makefile
+    cp ${{ name }}/utils/poetry.lock ${{ name }}/poetry.lock
+    cp ${{ name }}/utils/README.md ${{ name }}/README.md
     tar -czf ${{ name }}-${{ version }}.tar.gz ${{ name }}
     octave -W -H --eval "pkg install -global -verbose ${{ name }}-${{ version }}.tar.gz"
 
