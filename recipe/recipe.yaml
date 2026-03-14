@@ -1,6 +1,6 @@
 context:
   name: onsas
-  version: "0.2.5"
+  version: "0.4.2"
 
 package:
   name: octave-${{ name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/ONSAS/ONSAS.m/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 537c14f7ad920601dc9d1538fd54a6cc5faef86c778cd3ad6337dff3b8003d86
+  sha256: b88c1caefcd82d7393b7d604ddefdc0da5136da0cb8b18587469e066857f352c
   target_directory: ${{ name }}
 
 build:
